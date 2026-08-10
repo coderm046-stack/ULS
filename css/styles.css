@@ -691,6 +691,14 @@ td:nth-child(5) { color: var(--vidarbhi); }
   stroke-width: 2;
 }
 
+.district-boundary {
+  fill: none;
+  stroke: var(--secondary);
+  stroke-opacity: 0.4;
+  stroke-width: 0.75;
+  pointer-events: none;
+}
+
 .dialect-point {
   fill: var(--primary);
   cursor: pointer;
