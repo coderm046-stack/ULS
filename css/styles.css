@@ -836,6 +836,70 @@ td:nth-child(5) { color: var(--vidarbhi); }
   border-color: var(--primary);
 }
 
+/* ===== Boli Parichay ===== */
+.boli-card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+}
+
+.boli-card-header {
+  padding: 1.2rem 1.5rem;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.boli-card-header.varhadi { background: linear-gradient(135deg, #2a9d8f, #457b9d); }
+.boli-card-header.ahirani { background: linear-gradient(135deg, #e76f51, #f4a261); }
+.boli-card-header.vidarbhi { background: linear-gradient(135deg, #1d3557, #457b9d); }
+.boli-card-header.konkani { background: linear-gradient(135deg, #2d6a4f, #2a9d8f); }
+
+.boli-card-header h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.boli-badge {
+  background: rgba(255,255,255,0.25);
+  padding: 0.3rem 0.9rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.boli-body {
+  padding: 1.5rem;
+}
+
+.boli-block {
+  margin-bottom: 1.2rem;
+}
+
+.boli-block:last-child {
+  margin-bottom: 0;
+}
+
+.boli-block h4 {
+  color: var(--secondary-dark);
+  font-size: 1.05rem;
+  margin-bottom: 0.4rem;
+  border-left: 3px solid var(--primary);
+  padding-left: 0.6rem;
+}
+
+.boli-block p {
+  color: var(--text);
+  line-height: 1.9;
+  font-size: 1.02rem;
+  text-align: justify;
+}
+
 /* ===== Footer ===== */
 .footer {
   text-align: center;
