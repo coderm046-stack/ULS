@@ -877,6 +877,55 @@ td:nth-child(5) { color: var(--vidarbhi); }
   padding: 1.5rem;
 }
 
+.boli-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.boli-card-link:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.boli-card-link .boli-card {
+  margin-bottom: 1.5rem;
+}
+
+.boli-card-footer {
+  padding: 1rem 1.5rem;
+  background: #f8f9fa;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.boli-card-footer p {
+  margin: 0;
+  color: var(--text-light);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.boli-card-footer .boli-cta {
+  background: var(--secondary-dark);
+  color: #fff;
+  padding: 0.5rem 1.2rem;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background 0.3s ease;
+}
+
+.boli-card-link:hover .boli-cta {
+  background: var(--primary);
+}
+
 .boli-block {
   margin-bottom: 1.2rem;
 }
@@ -898,6 +947,182 @@ td:nth-child(5) { color: var(--vidarbhi); }
   line-height: 1.9;
   font-size: 1.02rem;
   text-align: justify;
+}
+
+/* ===== Boli Detail Pages ===== */
+.boli-page {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.boli-hero {
+  border-radius: var(--radius);
+  color: #fff;
+  padding: 2rem 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow-lg);
+}
+
+.boli-hero.varli { background: linear-gradient(135deg, #2a9d8f 0%, #1d3557 100%); }
+.boli-hero.ahirani { background: linear-gradient(135deg, #e76f51 0%, #9b2226 100%); }
+.boli-hero.vaidarbhi { background: linear-gradient(135deg, #1d3557 0%, #457b9d 100%); }
+.boli-hero.konkani { background: linear-gradient(135deg, #2d6a4f 0%, #2a9d8f 100%); }
+
+.boli-hero h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.boli-hero .boli-tagline {
+  font-size: 1.05rem;
+  opacity: 0.95;
+  margin-bottom: 0.8rem;
+}
+
+.boli-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.boli-chip {
+  background: rgba(255,255,255,0.22);
+  padding: 0.3rem 0.9rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.boli-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.boli-nav a {
+  padding: 0.5rem 1.1rem;
+  border: 2px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text);
+  border-radius: 25px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.boli-nav a:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.boli-nav a.current {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+.boli-content-card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.boli-content-card h3 {
+  color: var(--secondary-dark);
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  border-left: 4px solid var(--primary);
+  padding-left: 0.8rem;
+}
+
+.boli-content-card p {
+  line-height: 1.9;
+  margin-bottom: 0.9rem;
+  text-align: justify;
+  font-size: 1.02rem;
+}
+
+.boli-content-card p:last-child {
+  margin-bottom: 0;
+}
+
+.boli-fact {
+  background: #f8f9fa;
+  border-left: 4px solid var(--accent);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 1rem 1.2rem;
+  margin: 1rem 0;
+  font-style: italic;
+}
+
+.boli-fact strong {
+  color: var(--secondary-dark);
+  font-style: normal;
+}
+
+.boli-vocab {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--bg-card);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.boli-vocab th {
+  background: var(--secondary-dark);
+  color: #fff;
+  padding: 0.8rem 1rem;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+.boli-vocab td {
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 1rem;
+}
+
+.boli-vocab tbody tr:hover {
+  background: #f0f7ff;
+}
+
+.boli-list {
+  margin-left: 1.2rem;
+  margin-bottom: 0.9rem;
+}
+
+.boli-list li {
+  line-height: 1.9;
+  margin-bottom: 0.4rem;
+}
+
+.boli-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.boli-mini-card {
+  background: #f8f9fa;
+  border-radius: var(--radius-sm);
+  padding: 1rem 1.2rem;
+}
+
+.boli-mini-card h4 {
+  color: var(--secondary-dark);
+  margin-bottom: 0.4rem;
+  font-size: 1rem;
+}
+
+.boli-mini-card p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  text-align: left;
+  margin-bottom: 0;
 }
 
 /* ===== Footer ===== */
@@ -952,6 +1177,18 @@ td:nth-child(5) { color: var(--vidarbhi); }
 
   .qr-form input {
     min-width: 100%;
+  }
+
+  .boli-hero h2 {
+    font-size: 1.6rem;
+  }
+
+  .boli-grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .boli-content-card {
+    padding: 1.2rem;
   }
 }
 
