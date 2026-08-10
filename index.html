@@ -330,66 +330,6 @@
     </section>
 
     <!-- QR Code Section -->
-    <section id="qr" class="section">
-      <div class="section-header">
-        <h2>QR Code विभाग</h2>
-        <p>QR Code स्कॅन करून बोलीभाषा ऐका आणि शिका</p>
-      </div>
-
-      <div class="qr-grid">
-        <div class="qr-card">
-          <h3>वारली बोली</h3>
-          <div class="qr-placeholder" id="qrVarhadi">
-            <p>QR Code</p>
-            <small>वारली बोली ऐका</small>
-          </div>
-          <p class="qr-desc">पश्चिम महाराष्ट्रातील बोली</p>
-        </div>
-        <div class="qr-card">
-          <h3>अहिराणी बोली</h3>
-          <div class="qr-placeholder" id="qrAhirani">
-            <p>QR Code</p>
-            <small>अहिराणी बोली ऐका</small>
-          </div>
-          <p class="qr-desc">उत्तर महाराष्ट्रातील बोली</p>
-        </div>
-        <div class="qr-card">
-          <h3>वैदर्भी बोली</h3>
-          <div class="qr-placeholder" id="qrVidarbhi">
-            <p>QR Code</p>
-            <small>वैदर्भी बोली ऐका</small>
-          </div>
-          <p class="qr-desc">विदर्भ प्रदेशातील बोली</p>
-        </div>
-        <div class="qr-card">
-          <h3>कोकणी बोली</h3>
-          <div class="qr-placeholder" id="qrKokani">
-            <p>QR Code</p>
-            <small>कोकणी बोली ऐका</small>
-          </div>
-          <p class="qr-desc">कोंकण किनारपट्टीतील बोली</p>
-        </div>
-      </div>
-
-      <div class="qr-custom">
-        <h3>स्वतःचा QR Code तयार करा</h3>
-        <div class="qr-form">
-          <input type="text" id="customUrl" placeholder="URL टाइप करा (उदा. https://example.com/audio.mp3)">
-          <button class="btn btn-primary" id="generateQr">QR Code तयार करा</button>
-        </div>
-        <div id="customQr" class="qr-display"></div>
-      </div>
-
-      <div class="student-qr">
-        <h3>विद्यार्थ्यांच्या कवितेचा QR Code</h3>
-        <p>विद्यार्थ्यांनी म्हटलेली कविता QR code द्वारे ऐकण्याची संधी</p>
-        <div class="qr-form">
-          <input type="text" id="studentAudioUrl" placeholder="कवितेचा Audio URL टाइप करा">
-          <button class="btn btn-primary" id="generateStudentQr">QR Code तयार करा</button>
-        </div>
-        <div id="studentQr" class="qr-display"></div>
-      </div>
-    </section>
     <!-- Boli Parichay Section -->
     <section id="boli" class="section">
       <div class="section-header">
@@ -460,6 +400,67 @@
           </div>
         </article>
       </a>
+    </section>
+
+    <section id="qr" class="section">
+      <div class="section-header">
+        <h2>QR Code विभाग</h2>
+        <p>QR Code स्कॅन करून बोलीभाषा ऐका आणि शिका</p>
+      </div>
+
+      <div class="qr-grid">
+        <div class="qr-card">
+          <h3>वारली बोली</h3>
+          <div class="qr-placeholder" id="qrVarhadi">
+            <p>QR Code</p>
+            <small>वारली बोली ऐका</small>
+          </div>
+          <p class="qr-desc">पश्चिम महाराष्ट्रातील बोली</p>
+        </div>
+        <div class="qr-card">
+          <h3>अहिराणी बोली</h3>
+          <div class="qr-placeholder" id="qrAhirani">
+            <p>QR Code</p>
+            <small>अहिराणी बोली ऐका</small>
+          </div>
+          <p class="qr-desc">उत्तर महाराष्ट्रातील बोली</p>
+        </div>
+        <div class="qr-card">
+          <h3>वैदर्भी बोली</h3>
+          <div class="qr-placeholder" id="qrVidarbhi">
+            <p>QR Code</p>
+            <small>वैदर्भी बोली ऐका</small>
+          </div>
+          <p class="qr-desc">विदर्भ प्रदेशातील बोली</p>
+        </div>
+        <div class="qr-card">
+          <h3>कोकणी बोली</h3>
+          <div class="qr-placeholder" id="qrKokani">
+            <p>QR Code</p>
+            <small>कोकणी बोली ऐका</small>
+          </div>
+          <p class="qr-desc">कोंकण किनारपट्टीतील बोली</p>
+        </div>
+      </div>
+
+      <div class="qr-custom">
+        <h3>स्वतःचा QR Code तयार करा</h3>
+        <div class="qr-form">
+          <input type="text" id="customUrl" placeholder="URL टाइप करा (उदा. https://example.com/audio.mp3)">
+          <button class="btn btn-primary" id="generateQr">QR Code तयार करा</button>
+        </div>
+        <div id="customQr" class="qr-display"></div>
+      </div>
+
+      <div class="student-qr">
+        <h3>विद्यार्थ्यांच्या कवितेचा QR Code</h3>
+        <p>विद्यार्थ्यांनी म्हटलेली कविता QR code द्वारे ऐकण्याची संधी</p>
+        <div class="qr-form">
+          <input type="text" id="studentAudioUrl" placeholder="कवितेचा Audio URL टाइप करा">
+          <button class="btn btn-primary" id="generateStudentQr">QR Code तयार करा</button>
+        </div>
+        <div id="studentQr" class="qr-display"></div>
+      </div>
     </section>
   </main>
 
