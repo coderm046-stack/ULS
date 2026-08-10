@@ -414,10 +414,13 @@ function generateQR(elementId, url, size) {
   container.innerHTML = '';
 
   if (typeof QRCode !== 'undefined') {
-    const canvas = document.createElement('canvas');
-    container.appendChild(canvas);
-    QRCode.toCanvas(canvas, url, { width: size, margin: 2, color: { dark: '#1d3557', light: '#ffffff' } }, (error) => {
-      if (error) container.innerHTML = `<p style="color: red;">QR Code तयार करण्यात त्रुटी</p>`;
+    new QRCode(container, {
+      text: url,
+      width: size,
+      height: size,
+      colorDark: '#1d3557',
+      colorLight: '#ffffff',
+      correctLevel: QRCode.CorrectLevel.H
     });
   } else {
     container.innerHTML = `<div style="padding: 1rem; background: #f8f9fa; border-radius: 8px; word-break: break-all;"><p>URL: <a href="${url}" target="_blank">${url}</a></p></div>`;
