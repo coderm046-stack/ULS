@@ -426,3 +426,40 @@ function generateQR(elementId, url, size) {
     container.innerHTML = `<div style="padding: 1rem; background: #f8f9fa; border-radius: 8px; word-break: break-all;"><p>URL: <a href="${url}" target="_blank">${url}</a></p></div>`;
   }
 }
+
+// ===== Boli Audio Playback =====
+function toggleBoliAudio(dialect) {
+  const audio = document.getElementById('audio-' + dialect);
+  const btn = document.querySelector('[onclick*="' + dialect + '"]');
+  if (!audio) return;
+
+  // Pause all other audio first
+  document.querySelectorAll('.boli-card audio').forEach(a => {
+    if (a.id !== 'audio-' + dialect) {
+      a.pause();
+      a.currentTime = 0;
+    }
+  });
+  document.querySelectorAll('.boli-audio-btn').forEach(b => {
+    if (b !== btn) b.classList.remove('playing');
+  });
+
+  if (audio.paused) {
+    audio.play();
+    btn.classList.add('playing');
+  } else {
+    audio.pause();
+    audio.currentTime = 0;
+    btn.classList.remove('playing');
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.boli-card audio').forEach(audio => {
+    audio.addEventListener('ended', () => {
+      const dialect = audio.id.replace('audio-', '');
+      const btn = document.querySelector('[onclick*="' + dialect + '"]');
+      if (btn) btn.classList.remove('playing');
+    });
+  });
+});
