@@ -449,7 +449,6 @@ function toggleBoliAudio(dialect) {
     btn.classList.add('playing');
   } else {
     audio.pause();
-    audio.currentTime = 0;
     btn.classList.remove('playing');
   }
 }
