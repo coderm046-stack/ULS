@@ -27,7 +27,11 @@
 
   <main class="main boli-page">
     <section class="boli-hero konkani">
-      <h2>कोकणी बोली</h2>
+      <div style="display:flex; align-items:center; gap:1rem;">
+        <h2>कोकणी बोली</h2>
+        <button class="boli-audio-btn playing" onclick="toggleBoliAudio('konkani')" title="कोकणी बोली ऐका">🔊</button>
+      </div>
+      <audio id="audio-konkani" src="audio/boli_intro/konkani.mp3"></audio>
       <p class="boli-tagline">समुद्रकिनारीच्या लाटांसारखी निर्मळ, कोकणी बोली.</p>
       <div class="boli-chips">
         <span class="boli-chip">🌊 कोंकण किनारपट्टी</span>
@@ -165,5 +169,27 @@
       <p>कोकणी बोली ही कोकणच्या सांस्कृतिक ओळखीचा आणि इतिहासाचा महत्त्वाचा दुवा आहे. तिच्या जतनामुळे कोकणची प्राचीन परंपरा, लोककला आणि समुद्रसंस्कृती जिवंत राहील.</p>
     </article>
   </main>
+  <script>
+    function toggleBoliAudio(dialect) {
+      const audio = document.getElementById('audio-' + dialect);
+      const btn = document.querySelector('.boli-audio-btn');
+      if (!audio) return;
+      if (audio.paused) {
+        audio.play();
+        btn.classList.add('playing');
+      } else {
+        audio.pause();
+        audio.currentTime = 0;
+        btn.classList.remove('playing');
+      }
+    }
+    document.addEventListener('DOMContentLoaded', () => {
+      const audio = document.querySelector('audio');
+      const btn = document.querySelector('.boli-audio-btn');
+      if (audio && btn) {
+        audio.addEventListener('ended', () => btn.classList.remove('playing'));
+      }
+    });
+  </script>
 </body>
 </html>
