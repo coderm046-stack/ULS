@@ -462,4 +462,28 @@ document.addEventListener('DOMContentLoaded', () => {
       if (btn) btn.classList.remove('playing');
     });
   });
+
+  // Poem audio ended handler
+  const khopyaAudio = document.getElementById('audio-khopya');
+  if (khopyaAudio) {
+    khopyaAudio.addEventListener('ended', () => {
+      const btn = document.querySelector('[onclick*="khopya"]');
+      if (btn) btn.classList.remove('playing');
+    });
+  }
 });
+
+// ===== Poem Audio Playback =====
+function togglePoemAudio(id) {
+  const audio = document.getElementById('audio-' + id);
+  const btn = document.querySelector('[onclick*="' + id + '"]');
+  if (!audio) return;
+
+  if (audio.paused) {
+    audio.play();
+    btn.classList.add('playing');
+  } else {
+    audio.pause();
+    btn.classList.remove('playing');
+  }
+}

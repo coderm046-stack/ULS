@@ -1251,6 +1251,32 @@ td:nth-child(5) { color: var(--vidarbhi); }
   animation: pulse 1s infinite;
 }
 
+.poem-audio-btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 0.5rem 1.2rem;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: all 0.3s ease;
+}
+
+.poem-audio-btn:hover {
+  background: var(--primary-dark);
+  transform: scale(1.05);
+}
+
+.poem-audio-btn.playing {
+  background: var(--primary-dark);
+  animation: pulse 1s infinite;
+}
+
 @keyframes pulse {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.15); }
