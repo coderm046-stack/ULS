@@ -138,18 +138,7 @@ const dialectData = {
     { "name": "कुंकणी", "region": "गोवा-कोंकण", "x": 20, "y": 55 },
     { "name": "बन्या", "region": "उत्तर कोंकण", "x": 30, "y": 35 }
   ],
-  "quizQuestions": [
-    { "question": "वारली भाषेत 'अन्न' ला काय म्हणतात?", "options": ["जेवण", "अन्न", "भोजन", "खाद्य"], "correct": 0 },
-    { "question": "अहिराणी भाषा कोणत्या प्रदेशात बोलली जाते?", "options": ["विदर्भ", "उत्तर महाराष्ट्र", "कोंकण", "मराठवाडा"], "correct": 1 },
-    { "question": "वैदर्भी भाषा कोणत्या प्रदेशाशी संबंधित आहे?", "options": ["पश्चिम महाराष्ट्र", "दक्षिण महाराष्ट्र", "विदर्भ", "उत्तर महाराष्ट्र"], "correct": 2 },
-    { "question": "प्रमाण मराठी आणि बोलीभाषेंतील संबंध काय आहे?", "options": ["विरोधी", "एकात्मक", "स्वतंत्र", "असंबद्ध"], "correct": 1 },
-    { "question": "बहिणाबाई कोणत्या बोलीभाषेतील कवियत्री होत्या?", "options": ["वारली", "वैदर्भी", "अहिराणी", "प्रमाण मराठी"], "correct": 2 },
-    { "question": "भाषिक वैविध्याचे महत्त्व काय आहे?", "options": ["एकत्रित भाषा बोलण्यासाठी", "सांस्कृतिक वारसा जतन करण्यासाठी", "फक्त शिक्षणासाठी", "कोणतेही नाही"], "correct": 1 },
-    { "question": "QR code द्वारे काय करता येते?", "options": ["शब्द ऐकणे", "चित्र बघणे", "वीडियो पाहणे", "सर्व काही"], "correct": 0 },
-    { "question": "गटचर्चा ही कोणत्या मूल्यांकन प्रक्रियेचा भाग आहे?", "options": ["मौखिक मूल्यांकन", "लिखित मूल्यांकन", "प्रायोगिक मूल्यांकन", "सर्व काही"], "correct": 0 },
-    { "question": "महाराष्ट्रात किती प्रमुख बोलीभाषा आहेत?", "options": ["२", "४", "६", "८"], "correct": 2 },
-    { "question": "कोकणी बोली कोणत्या प्रदेशात बोलली जाते?", "options": ["विदर्भ", "मराठवाडा", "कोंकण किनारपट्टी", "उत्तर महाराष्ट्र"], "correct": 2 }
-  ]
+  "quizQuestions": []
 };
 
 // ===== Main Application =====
@@ -159,10 +148,24 @@ document.addEventListener('DOMContentLoaded', () => {
   buildPoemTabs();
   renderComparison();
   renderPoem(0);
-  initQuiz();
+  loadQuizData().then(() => initQuiz());
   initMap();
   initQR();
 });
+
+async function loadQuizData() {
+  try {
+    const resp = await fetch('data/dialects.json');
+    if (resp.ok) {
+      const json = await resp.json();
+      if (json.quizQuestions && json.quizQuestions.length > 0) {
+        dialectData.quizQuestions = json.quizQuestions;
+      }
+    }
+  } catch (e) {
+    console.warn('Could not load quiz data from dialects.json:', e);
+  }
+}
 
 // ===== Navigation =====
 function initNavigation() {
