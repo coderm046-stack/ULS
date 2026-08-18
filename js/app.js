@@ -477,11 +477,20 @@ document.addEventListener('DOMContentLoaded', () => {
 function togglePoemAudio(id) {
   const audio = document.getElementById('audio-' + id);
   const btn = document.querySelector('[onclick*="' + id + '"]');
+  const status = document.getElementById(id + '-status');
   if (!audio) return;
 
   if (audio.paused) {
-    audio.play();
-    btn.classList.add('playing');
+    audio.load();
+    const playPromise = audio.play();
+    if (playPromise !== undefined) {
+      playPromise.then(() => {
+        btn.classList.add('playing');
+        if (status) status.textContent = '';
+      }).catch(err => {
+        if (status) status.textContent = 'Audio load error: ' + err.message;
+      });
+    }
   } else {
     audio.pause();
     btn.classList.remove('playing');
