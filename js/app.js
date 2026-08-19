@@ -141,6 +141,51 @@ const dialectData = {
   "quizQuestions": []
 };
 
+const districtDialectData = [
+  { name: "अकोला", region: "विदर्भ", dialects: "वऱ्हाडी", x: 337, y: 95 },
+  { name: "अमरावती", region: "विदर्भ", dialects: "वऱ्हाडी", x: 317, y: 105 },
+  { name: "बुलढाणा", region: "विदर्भ", dialects: "वऱ्हाडी", x: 355, y: 130 },
+  { name: "वाशीम", region: "विदर्भ", dialects: "वऱ्हाडी", x: 370, y: 115 },
+  { name: "यवतमाळ", region: "विदर्भ", dialects: "झाडीबोली", x: 400, y: 105 },
+  { name: "वर्धा", region: "विदर्भ", dialects: "वऱ्हाडी", x: 365, y: 78 },
+  { name: "नागपूर", region: "विदर्भ", dialects: "नागपुरी", x: 348, y: 68 },
+  { name: "चंद्रपूर", region: "विदर्भ", dialects: "झाडीबोली", x: 435, y: 100 },
+  { name: "गडचिरोली", region: "विदर्भ", dialects: "गोंडी", x: 460, y: 115 },
+  { name: "भंडारा", region: "विदर्भ", dialects: "नागपुरी", x: 370, y: 60 },
+  { name: "गोंदिया", region: "विदर्भ", dialects: "गोंडी", x: 340, y: 50 },
+  { name: "जळगाव", region: "खानदेश व उत्तर महाराष्ट्र", dialects: "अहिराणी, तावडी", x: 150, y: 100 },
+  { name: "धुळे", region: "खानदेश व उत्तर महाराष्ट्र", dialects: "अहिराणी", x: 140, y: 120 },
+  { name: "नंदुरबार", region: "खानदेश व उत्तर महाराष्ट्र", dialects: "भिल्ली व पावरी", x: 115, y: 135 },
+  { name: "नाशिक", region: "खानदेश व उत्तर महाराष्ट्र", dialects: "बागलाणी", x: 178, y: 130 },
+  { name: "मुंबई", region: "कोकण", dialects: "कोकणी", x: 42, y: 225 },
+  { name: "ठाणे", region: "कोकण", dialects: "वाडवळी, कोकणी", x: 62, y: 185 },
+  { name: "पालघर", region: "कोकण", dialects: "वाडवळी, आगरी", x: 62, y: 158 },
+  { name: "रायगड", region: "कोकण", dialects: "कोळी, वाडवळी", x: 95, y: 290 },
+  { name: "रत्नागिरी", region: "कोकण", dialects: "मालवणी", x: 78, y: 370 },
+  { name: "सिंधुदुर्ग", region: "कोकण", dialects: "मालवणी", x: 75, y: 345 },
+  { name: "छ.संभाजीनगर", region: "मराठवाडा", dialects: "मराठवाडी", x: 230, y: 175 },
+  { name: "बीड", region: "मराठवाडा", dialects: "मराठवाडी", x: 255, y: 215 },
+  { name: "जालना", region: "मराठवाडा", dialects: "मराठवाडी", x: 240, y: 155 },
+  { name: "परभणी", region: "मराठवाडा", dialects: "मराठवाडी", x: 200, y: 190 },
+  { name: "हिंगोली", region: "मराठवाडा", dialects: "मराठवाडी", x: 225, y: 140 },
+  { name: "नांदेड", region: "मराठवाडा", dialects: "मराठवाडी, बंजारी", x: 270, y: 185 },
+  { name: "लातूर", region: "मराठवाडा", dialects: "मराठवाडी", x: 290, y: 175 },
+  { name: "धाराशिव", region: "मराठवाडा", dialects: "मराठवाडी, बंजारी", x: 280, y: 155 },
+  { name: "पुणे", region: "पश्चिम महाराष्ट्र", dialects: "प्रमाण मराठी", x: 130, y: 240 },
+  { name: "सातारा", region: "पश्चिम महाराष्ट्र", dialects: "प्रमाण मराठी", x: 115, y: 300 },
+  { name: "सांगली", region: "पश्चिम महाराष्ट्र", dialects: "प्रमाण मराठी", x: 155, y: 315 },
+  { name: "कोल्हापूर", region: "पश्चिम महाराष्ट्र", dialects: "चंदगडी", x: 115, y: 345 },
+  { name: "सोलापूर", region: "पश्चिम महाराष्ट्र", dialects: "सोलापूर बोली", x: 195, y: 275 }
+];
+
+const regionColors = {
+  "विदर्भ": "#e76f51",
+  "खानदेश व उत्तर महाराष्ट्र": "#f4a261",
+  "कोकण": "#2a9d8f",
+  "मराठवाडा": "#264653",
+  "पश्चिम महाराष्ट्र": "#e9c46a"
+};
+
 // ===== Main Application =====
 document.addEventListener('DOMContentLoaded', () => {
   initNavigation();
@@ -396,28 +441,71 @@ function showQuizResult() {
 
 // ===== Map =====
 function initMap() {
-  document.querySelectorAll('.dialect-point').forEach(point => {
-    point.addEventListener('click', () => {
-      document.querySelectorAll('.dialect-point').forEach(p => p.classList.remove('active'));
-      point.classList.add('active');
+  const svg = document.getElementById('maharashtraMap');
+  const tooltip = document.getElementById('districtTooltip');
+  const legend = document.getElementById('mapLegend');
 
-      const name = point.dataset.name;
-      const region = point.dataset.region;
+  if (!svg || !tooltip || !legend) return;
 
-      document.getElementById('mapLegend').innerHTML = `
+  const ns = 'http://www.w3.org/2000/svg';
+  const dotsGroup = document.createElementNS(ns, 'g');
+  dotsGroup.setAttribute('id', 'districtDots');
+  svg.appendChild(dotsGroup);
+
+  districtDialectData.forEach(d => {
+    const circle = document.createElementNS(ns, 'circle');
+    circle.setAttribute('cx', d.x);
+    circle.setAttribute('cy', d.y);
+    circle.setAttribute('r', '4.5');
+    circle.setAttribute('fill', regionColors[d.region] || '#1d3557');
+    circle.setAttribute('class', 'district-dot');
+    circle.setAttribute('data-name', d.name);
+    circle.setAttribute('data-region', d.region);
+    circle.setAttribute('data-dialects', d.dialects);
+
+    circle.addEventListener('mouseenter', (e) => {
+      tooltip.innerHTML = `
+        <div class="tt-district">${d.name}</div>
+        <div class="tt-region">${d.region}</div>
+        <div class="tt-dialects">बोलीभाषा: ${d.dialects}</div>
+      `;
+      tooltip.style.display = 'block';
+
+      const mapContainer = svg.closest('.map-container');
+      const rect = mapContainer.getBoundingClientRect();
+      const svgRect = svg.getBoundingClientRect();
+      const scaleX = 500 / svgRect.width;
+      const scaleY = 420 / svgRect.height;
+      const tooltipX = (d.x / scaleX) + svgRect.left - rect.left + 10;
+      const tooltipY = (d.y / scaleY) + svgRect.top - rect.top - 60;
+      tooltip.style.left = tooltipX + 'px';
+      tooltip.style.top = tooltipY + 'px';
+    });
+
+    circle.addEventListener('mouseleave', () => {
+      tooltip.style.display = 'none';
+    });
+
+    circle.addEventListener('click', () => {
+      document.querySelectorAll('.district-dot').forEach(c => c.classList.remove('active'));
+      circle.classList.add('active');
+
+      legend.innerHTML = `
         <div class="map-info-card">
-          <h3>${name}</h3>
+          <h3>${d.name}</h3>
           <div class="dialect-info">
-            <div class="dialect-name">प्रदेश:</div>
-            <div class="dialect-region">${region}</div>
+            <div class="dialect-name">विभाग:</div>
+            <div class="dialect-region">${d.region}</div>
           </div>
           <div class="dialect-info">
-            <div class="dialect-name">बोली:</div>
-            <div class="dialect-region">${name} बोली</div>
+            <div class="dialect-name">प्रमुख बोलीभाषा:</div>
+            <div class="dialect-region">${d.dialects}</div>
           </div>
         </div>
       `;
     });
+
+    dotsGroup.appendChild(circle);
   });
 }
 
