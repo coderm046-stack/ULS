@@ -29,11 +29,18 @@
 }
 
 body {
-  font-family: 'Tiro Devanagari Marathi', 'Noto Sans Devanagari', sans-serif;
+  font-family: 'Noto Sans Devanagari', sans-serif;
   background: var(--bg);
   color: var(--text);
   line-height: 1.6;
   min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "liga" 1, "clig" 1, "dlig" 1, "kern" 1;
+  font-variant-ligatures: common-ligatures;
+  font-language-override: "MAR";
+  -webkit-text-size-adjust: 100%;
 }
 
 /* ===== Header ===== */
