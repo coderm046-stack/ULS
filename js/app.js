@@ -522,6 +522,8 @@ function initQR() {
     generateQR(id, url, 120);
   });
 
+  generateQR('demoQr', 'https://github.com/coderm046-stack/ULS', 150);
+
   document.getElementById('generateQr').addEventListener('click', () => {
     const url = document.getElementById('customUrl').value.trim();
     if (url) generateQR('customQr', url, 200);
