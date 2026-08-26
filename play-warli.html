@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>वारली बोली - ऑडिओ</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Noto Sans Devanagari', sans-serif;
+      background: linear-gradient(135deg, #1d3557, #457b9d);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .player-card {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 3rem 2rem;
+      text-align: center;
+      max-width: 400px;
+      width: 90%;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    }
+    .dialect-icon { font-size: 3rem; margin-bottom: 1rem; }
+    .dialect-name { font-size: 1.8rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .dialect-desc { font-size: 0.95rem; color: #b8c0cc; margin-bottom: 2rem; }
+    .play-btn {
+      background: #e0aaff;
+      border: none;
+      border-radius: 50%;
+      width: 80px; height: 80px;
+      font-size: 2rem;
+      cursor: pointer;
+      transition: transform 0.2s, background 0.2s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .play-btn:hover { transform: scale(1.1); background: #c77dff; }
+    .play-btn.playing { background: #ff6b6b; }
+    audio { display: none; }
+    .back-link {
+      display: inline-block;
+      margin-top: 2rem;
+      color: #b8c0cc;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .back-link:hover { color: #fff; }
+  </style>
+</head>
+<body>
+  <div class="player-card">
+    <div class="dialect-icon">🌳</div>
+    <h1 class="dialect-name">वारली बोली</h1>
+    <p class="dialect-desc">पश्चिम महाराष्ट्रातील आदिवासी बोली</p>
+    <audio id="audio" src="audio/warli/VARLI.mp3"></audio>
+    <button class="play-btn" id="playBtn" title="ऐका">▶</button>
+    <br>
+    <a class="back-link" href="index.html">← मुख्यपृष्ठावर जा</a>
+  </div>
+  <script>
+    const audio = document.getElementById('audio');
+    const btn = document.getElementById('playBtn');
+    function togglePlay() {
+      if (audio.paused) {
+        audio.play();
+        btn.textContent = '⏸';
+        btn.classList.add('playing');
+      } else {
+        audio.pause();
+        btn.textContent = '▶';
+        btn.classList.remove('playing');
+      }
+    }
+    btn.addEventListener('click', togglePlay);
+    audio.addEventListener('ended', () => { btn.textContent = '▶'; btn.classList.remove('playing'); });
+    window.addEventListener('load', () => { audio.play().then(() => { btn.textContent = '⏸'; btn.classList.add('playing'); }).catch(() => {}); });
+  </script>
+</body>
+</html>

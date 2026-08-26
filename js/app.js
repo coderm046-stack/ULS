@@ -512,10 +512,10 @@ function initMap() {
 // ===== QR Code =====
 function initQR() {
   const dialectUrls = {
-    qrVarhadi: 'https://example.com/varhadi-audio',
-    qrAhirani: 'https://example.com/ahirani-audio',
-    qrVidarbhi: 'https://example.com/vidarbhi-audio',
-    qrKokani: 'https://example.com/kokani-audio'
+    qrVarhadi: 'play-warli.html',
+    qrAhirani: 'play-ahirani.html',
+    qrVidarbhi: 'play-vaidarbhi.html',
+    qrKokani: 'play-kokani.html'
   };
 
   Object.entries(dialectUrls).forEach(([id, url]) => {
