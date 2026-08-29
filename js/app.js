@@ -511,11 +511,12 @@ function initMap() {
 
 // ===== QR Code =====
 function initQR() {
+  const base = window.location.origin + window.location.pathname.replace(/\/[^/]*$/, '/');
   const dialectUrls = {
-    qrVarhadi: 'play-warli.html',
-    qrAhirani: 'play-ahirani.html',
-    qrVidarbhi: 'play-vaidarbhi.html',
-    qrKokani: 'play-kokani.html'
+    qrVarhadi: base + 'play-warli.html',
+    qrAhirani: base + 'play-ahirani.html',
+    qrVidarbhi: base + 'play-vaidarbhi.html',
+    qrKokani: base + 'play-kokani.html'
   };
 
   Object.entries(dialectUrls).forEach(([id, url]) => {
