@@ -325,6 +325,15 @@ body {
   margin-bottom: 1.5rem;
 }
 
+.table-group {
+  margin-bottom: 2.5rem;
+}
+
+.table-group h3 {
+  margin-bottom: 0.75rem;
+  color: var(--primary);
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
@@ -1385,4 +1394,80 @@ td:nth-child(5) { color: var(--vidarbhi); }
 @keyframes pulse {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.15); }
+}
+
+/* ===== Print / PDF Styles ===== */
+.print-all .section {
+  display: block !important;
+  page-break-inside: avoid;
+  animation: none !important;
+}
+
+.print-all .section + .section {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 2px solid var(--border);
+}
+
+.print-all .section-header:first-child {
+  margin-top: 0;
+}
+
+.print-all .nav {
+  display: none !important;
+}
+
+.print-all .quiz-actions,
+.print-all .quiz-result {
+  display: none !important;
+}
+
+.print-all .boli-audio-btn {
+  display: none !important;
+}
+
+.print-all .poem-audio-btn {
+  display: none !important;
+}
+
+.print-all audio {
+  display: none !important;
+}
+
+.print-all .map-info-card p {
+  display: none;
+}
+
+.print-all #categoryFilter {
+  pointer-events: none;
+}
+
+/* Standalone dialect page print fixes */
+.boli-page .boli-nav {
+  display: none !important;
+}
+
+.boli-page .boli-audio-btn {
+  display: none !important;
+}
+
+/* Audio player page print fixes */
+.player-card .play-btn {
+  display: none !important;
+}
+
+.player-card .back-link {
+  display: none !important;
+}
+
+/* Ensure tables print nicely */
+table {
+  page-break-inside: avoid;
+}
+
+/* Force background colors in print */
+* {
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+  color-adjust: exact !important;
 }

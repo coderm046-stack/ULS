@@ -135,52 +135,58 @@
     <section id="comparison" class="section">
       <div class="section-header">
         <h2>तुलनात्मक शब्दसंग्रह</h2>
-        <div class="filter-group">
-          <label>श्रेणी:</label>
-          <select id="categoryFilter">
-            <option value="all">सर्व श्रेणी</option>
-          </select>
+      </div>
+
+      <div class="table-group">
+        <h3>वारली आणि कोकणा बोली तुलना</h3>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>इंग्रजी</th>
+                <th>प्रमाण मराठी</th>
+                <th>वारली बोली</th>
+                <th>कोकणा बोली</th>
+              </tr>
+            </thead>
+            <tbody id="table1Body">
+            </tbody>
+          </table>
         </div>
       </div>
 
-      <div class="dialect-legend">
-        <span class="legend-item marathi">प्रमाण मराठी</span>
-        <span class="legend-item varhadi">वारली</span>
-        <span class="legend-item ahirani">अहिराणी</span>
-        <span class="legend-item vidarbhi">वैदर्भी</span>
+      <div class="table-group">
+        <h3>वारली आणि अहिराणी तुलना</h3>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>इंग्रजी</th>
+                <th>प्रमाण मराठी</th>
+                <th>वारली</th>
+                <th>अहिराणी</th>
+              </tr>
+            </thead>
+            <tbody id="table2Body">
+            </tbody>
+          </table>
+        </div>
       </div>
 
-      <div class="table-container">
-        <table id="comparisonTable">
-          <thead>
-            <tr>
-              <th>इंग्रजी</th>
-              <th>प्रमाण मराठी</th>
-              <th>वारली</th>
-              <th>अहिराणी</th>
-              <th>वैदर्भी</th>
-            </tr>
-          </thead>
-          <tbody id="comparisonBody">
-          </tbody>
-        </table>
-      </div>
-
-      <div class="stats-container">
-        <h3>बोलीभाषा तुलना गणित</h3>
-        <div class="stats-grid">
-          <div class="stat-card">
-            <div class="stat-number" id="totalWords">0</div>
-            <div class="stat-label">एकूण शब्द</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number" id="sameWords">0</div>
-            <div class="stat-label">समान शब्द</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number" id="diffWords">0</div>
-            <div class="stat-label">वेगळे शब्द</div>
-          </div>
+      <div class="table-group">
+        <h3>वैदर्भी बोली तुलना</h3>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>इंग्रजी</th>
+                <th>प्रमाण मराठी</th>
+                <th>वैदर्भी</th>
+              </tr>
+            </thead>
+            <tbody id="table3Body">
+            </tbody>
+          </table>
         </div>
       </div>
     </section>
@@ -466,12 +472,6 @@
           </div>
           <p class="qr-desc">कोंकण किनारपट्टीतील बोली</p>
         </div>
-      </div>
-
-      <div class="qr-demo" style="text-align: center; margin-top: 30px; padding: 20px; background: rgba(255,255,255,0.05); border-radius: 12px;">
-        <h3 style="color: #e0aaff; margin-bottom: 15px;">डेमो QR कोड</h3>
-        <div id="demoQr" style="display: inline-block;"></div>
-        <p style="color: #b8c0cc; margin-top: 15px; font-size: 0.95rem;">या संपूर्ण प्रकल्पाची कार्यवाही ऑडिओ स्वरुपात एकण्यासाठी दिलेल्या QR कोड ला स्कॅन करा</p>
       </div>
 
     </section>
