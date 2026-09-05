@@ -570,15 +570,21 @@ function initQR() {
     generateQR(id, url, 120);
   });
 
-  document.getElementById('generateQr').addEventListener('click', () => {
-    const url = document.getElementById('customUrl').value.trim();
-    if (url) generateQR('customQr', url, 200);
-  });
+  const generateQrBtn = document.getElementById('generateQr');
+  if (generateQrBtn) {
+    generateQrBtn.addEventListener('click', () => {
+      const url = document.getElementById('customUrl').value.trim();
+      if (url) generateQR('customQr', url, 200);
+    });
+  }
 
-  document.getElementById('generateStudentQr').addEventListener('click', () => {
-    const url = document.getElementById('studentAudioUrl').value.trim();
-    if (url) generateQR('studentQr', url, 200);
-  });
+  const generateStudentQrBtn = document.getElementById('generateStudentQr');
+  if (generateStudentQrBtn) {
+    generateStudentQrBtn.addEventListener('click', () => {
+      const url = document.getElementById('studentAudioUrl').value.trim();
+      if (url) generateQR('studentQr', url, 200);
+    });
+  }
 }
 
 function generateQR(elementId, url, size) {
